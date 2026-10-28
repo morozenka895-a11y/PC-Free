@@ -1,0 +1,26 @@
+
+name: Ubuntu Cloud Machine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+
+    steps:
+      - name: Show VM resources
+        run: |
+          echo "=== Operating system ==="
+          cat /etc/os-release
+          echo "=== CPU ==="
+          nproc
+          lscpu
+          echo "=== RAM ==="
+          free -h
+          echo "=== Disk ==="
+          df -h
+          echo "=== Network ==="
+          hostname -I
+run-name: ubuntu
